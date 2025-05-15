@@ -52,7 +52,7 @@
   </div>
 
   <script>
-    const API_URL = 'https://jsonserver-80ym.onrender.com/usuarios';
+    const API_URL = 'https://jsonserver-80ym.onrender.com/users';
 
     const userForm = document.getElementById('userForm');
     const nameInput = document.getElementById('name');
@@ -64,7 +64,7 @@
       const res = await fetch(API_URL);
       const users = await res.json();
 
-      console.log(users);
+
 
       tableBody.innerHTML = users.map(user => `
         <tr>

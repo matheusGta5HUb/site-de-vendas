@@ -84,7 +84,7 @@
     }
 
     async function fetchOrdens() {
-      const ordens = await (await fetch(`${API_BASE}/ordens`)).json();
+      const ordens = await (await fetch(`${API_BASE}/orders`)).json();
       ordensTableBody.innerHTML = ordens.map(ordem => {
         const user = users.find(u => u.id == ordem.userId)?.name || 'Desconhecido';
         const produtos = ordem.products.map(id => {
@@ -118,13 +118,13 @@
       const id = ordemId.value;
 
       if (id) {
-        await fetch(`${API_BASE}/ordens/${id}`, {
+        await fetch(`${API_BASE}/orders/${id}`, {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(ordem)
         });
       } else {
-        await fetch(`${API_BASE}/ordens`, {
+        await fetch(`${API_BASE}/orders`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(ordem)
@@ -147,7 +147,7 @@
 
     async function deleteOrdem(id) {
       if (confirm('Excluir esta ordem?')) {
-        await fetch(`${API_BASE}/ordens/${id}`, { method: 'DELETE' });
+        await fetch(`${API_BASE}/orders/${id}`, { method: 'DELETE' });
         fetchOrdens();
       }
     }
