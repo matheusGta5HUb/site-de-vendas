@@ -63,6 +63,9 @@
     async function fetchUsers() {
       const res = await fetch(API_URL);
       const users = await res.json();
+
+      console.log(users);
+
       tableBody.innerHTML = users.map(user => `
         <tr>
           <td>${user.id}</td>
