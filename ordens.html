@@ -69,8 +69,8 @@
     let products = [];
 
     async function loadSelects() {
-      users = await (await fetch(`${API_BASE}/usuarios`)).json();
-      products = await (await fetch(`${API_BASE}/produtos`)).json();
+      users = await (await fetch(`${API_BASE}/users`)).json();
+      products = await (await fetch(`${API_BASE}/products`)).json();
 
       userSelect.innerHTML = users.map(u => `<option value="${u.id}">${u.name}</option>`).join('');
       productsSelect.innerHTML = products.map(p => `<option value="${p.id}">${p.name} - R$ ${p.price}</option>`).join('');
